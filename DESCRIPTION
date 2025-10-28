@@ -5,8 +5,8 @@ Version: 0.1.0
 Authors@R:
   c(person(given = "Marco",
            family = "Bonafede",
-           role = c("aut", "cre"), 
-           email = "mbonafedelh@gmail.com"), # There must be a "cre", but there can only be one), 
+           email = "mbonafedelh@gmail.com",
+           role = c("aut", "cre")), # There must be a "cre", but there can only be one
     person(given = "Alejandra",
            family = "Perez",
            role = "aut"),
@@ -28,5 +28,11 @@ Depends:
     R (>= 3.5)
 RoxygenNote: 7.3.2
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
+Imports: 
+    ggplot2,
+    stringr
