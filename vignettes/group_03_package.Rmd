@@ -1,11 +1,22 @@
 ---
 title: "group_03_package"
-output: rmarkdown::html_vignette
+output: rmarkdown::pdf_document
 vignette: >
   %\VignetteIndexEntry{group_03_package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+The package "group 3" is a simple DNA/RNA sequence tool. 
+
+This package provides a small collection of functions for generating, manipulating, and analyzing nucleotide and amino acid sequences. It allows users to create random DNA sequences, transcribe DNA to RNA, split sequences into codons, translate codons into amino acid sequences, and visualize amino acid composition as bar plots.
+
+Everyone writes about their function and some code for explanation 
+
+about and demonstrate how each function in the package is used (individually and in conjunction with each other). 
+ 
+As a final section, discuss use cases for the package and what other functions could be included. Also include the main points from your discussion in Task 3.
+
+
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
