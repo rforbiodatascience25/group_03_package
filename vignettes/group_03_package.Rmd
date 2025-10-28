@@ -43,6 +43,16 @@ convert_T_U("ATTGCT")
 
 In our process, we will use the random DNA sequence created with function 1 and make it an RNA one.
 
+Function 3:
+
+This function is named read_codons() and it takes in a DNA sequence as a string and outputs a character vector containing the codons in the sequence. It optionally takes in a "start" argument, which is 1 by default and indicates the position in the sequence you want to start reading codons from. 
+
+````{r}
+sequence <-  "AUUGCU"
+read_codons(sequence)
+other_sequence <- "AAUUGCU"
+read_codons(sequence, 2)
+````
 
 Function 4:
 
