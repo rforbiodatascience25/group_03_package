@@ -15,8 +15,3 @@ Returns a random DNA-like sequence with the input lenght
 \description{
 Creating random DNA
 }
-\examples{
-10 is the input by the user, the function will create a one continue
-string of random DNA-like with a lenght of 10 nucleotide, example of an output: ACCTGAAGCT
-
-}
