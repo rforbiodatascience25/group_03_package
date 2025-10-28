@@ -5,20 +5,20 @@ Version: 0.1.0
 Authors@R:
   c(person(given = "Marco",
            family = "Bonafede",
-           role = c("aut", "cre"), # There must be a "cre", but there can only be one), 
+           email = "mbonafedelh@gmail.com",
+           role = c("aut", "cre")), # There must be a "cre", but there can only be one
     person(given = "Alejandra",
            family = "Perez",
-           role = "aut",)
+           role = "aut"),
     person(given = "Carlos",
            family = "Ribera",
-           role = "aut",)
+           role = "aut"),
     person(given = "Mei",
            family = "Sam",
-           role = "aut",)
+           role = "aut"),
     person(given = "Thelma",
            family = "Flores",
-           role = "aut",)
-           )
+           role = "aut"))
 Description: More about what it does (maybe more than one line).
     Continuation lines should be indented.
 License: MIT + file LICENSE
