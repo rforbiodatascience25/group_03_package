@@ -1,11 +1,24 @@
 ---
-title: "group_03_package"
-output: rmarkdown::pdf_document
-vignette: >
-  %\VignetteIndexEntry{group_03_package}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Lab8Package
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of Lab8Package is to ...
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(

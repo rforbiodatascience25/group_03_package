@@ -1,0 +1,162 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Lab8Package
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of Lab8Package is to …
+
+``` r
+library(Lab8Package)
+```
+
+The package “group 3” is a simple DNA/RNA sequence tool. Link to our
+GitHub repository:
+<https://github.com/rforbiodatascience25/group_03_package>
+
+This package provides a small collection of functions for generating,
+manipulating, and analyzing nucleotide and amino acid sequences. It
+allows users to create random DNA sequences, transcribe DNA to RNA,
+split sequences into codons, translate codons into amino acid sequences,
+and visualize amino acid composition as bar plots.
+
+\#Function 1 : random_dna1
+
+This function creates a synthetic DNA sequence of a specified length,
+given as an input. It randomly samples nucleotides from the standard DNA
+bases (adenine, thymine, guanine, and cytosine) with replacement, then
+concatenates them into a single continuous string.
+
+``` r
+#variable inside function, called random_dna2, is the input by the user. This should be the desired lenght of DNA
+random_dna1 <- function(random_dna2){
+  random_dna3 <- sample(c("A", "T", "G", "C"), size = random_dna2, replace = TRUE)
+  #random_dna3 generates the random dna-like sequence with the size given in random_dna2
+  random_dna4 <- paste0(random_dna3, collapse = "")
+  #in random_dna4 is the random sequence generated but converting it into a string, without any spaces in between.
+  return(random_dna4)
+  }
+```
+
+\##Function 2:
+
+This function takes a DNA sequence in argument and returns the
+corresponding RNA sequence. The process that is realized is changing the
+“T” into “U”. For instance, the “ATTGCT” DNA sequence will be converted
+into “AUUGCU”.
+
+``` r
+convert_T_U("ATTGCT")
+#> [1] "AUUGCU"
+```
+
+In our process, we will use the random DNA sequence created with
+function 1 and make it an RNA one.
+
+\##Function 3:
+
+This function is named read_codons() and it takes in a DNA sequence as a
+string and outputs a character vector containing the codons in the
+sequence. It optionally takes in a “start” argument, which is 1 by
+default and indicates the position in the sequence you want to start
+reading codons from.
+
+``` r
+sequence <-  "AUUGCU"
+read_codons(sequence)
+#> [1] "AUU" "GCU"
+other_sequence <- "AAUUGCU"
+read_codons(sequence, 2)
+#> [1] "UUG"
+```
+
+\##Function 4:
+
+This function “codons_into_aa” uses the data table we integrated. The
+“data_codon.rda” table links the trios of codons to the corresponding
+amino-acid. For instance, the codon (“UUU”, “GAC”, “AAG”) will become
+“FDK” after going through the function.
+
+``` r
+codons <- c("UUU", "GAC", "AAG")
+codons_into_aa(codons)
+#> [1] "FDK"
+```
+
+In our process, we use the sequence randomly generated that previously
+had been groupped in trios with function 3 and we translate it into
+amino-acids.
+
+\##Function 5:
+
+This function creates a histogram based on the amino acid string.
+
+Here is an example with 30 amino acids, 13 different ones:
+
+``` r
+Lab8Package::AminoAcidsHistogram('QHHPKHVAFKLGFAVGSTKSYHKFLSGHNV')
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.svg" width="100%" />
+
+Here is an example with 3 amino acids, 2 different ones:
+
+``` r
+Lab8Package::AminoAcidsHistogram('QHH')
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.svg" width="100%" />
+
+### Importing Packages
+
+There are two general ways to use a function in a package
+
+``` r
+#' @importFrom package function
+```
+
+This you put in the package, before the function, in the function
+description. This way you can use the function, without the package
+name. This can simplify your code to make it to both code and read.
+
+or
+
+``` r
+#package::function()
+```
+
+This is in the code, where you need to use the function. This way
+prevents problems from two different packages having the same name for a
+function. It also makes it obvious what package is being used for both
+the coder and the reader.
+
+## General Discussion
+
+It is bad to have too many different dependencies, because it makes your
+code more dependent on other code working as expected. If there is a
+error in one dependency, then your code likely not work. The more
+dependencies you have, the more likelihood there is of this happening.
+Therefore it is important to only pick the vital dependencies, for your
+code.
+
+Of course dependencies are quite often vital. It can drastically
+decrease the amount of time it takes to program your code. It can also
+make the code shorter and easier to read.
+
+## Use cases for this package:
+
+This package is a DNA/RNA/protein sequence toolkit. Then it could be use
+for teaching and learning molecular biology concepts, for a quick
+demostration on how the central dogma of biology works. Moreover, it is
+useful for bioinformatics pipelines, for example, for generating
+synthetic DNA sequences for testing sequence-processing algorithms or
+simulating codon usage in silico.
+
+# Besides the five functions included in this package, we could provide more functions to make it more versatile. For example:
+
+- Reverse complement
+- Calculation of the GC content
+- Translate RNA/DNA with Codon Table for specific microorganisms
+- Sequence Validation in case there is an invalid character
