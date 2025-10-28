@@ -17,20 +17,21 @@ knitr::opts_chunk$set(
 library(Lab8Package)
 ```
 
-The package "group 3" is a simple DNA/RNA sequence tool. 
-Link to our GitHub repository: https://github.com/rforbiodatascience25/group_03_package
+Use cases for this package: 
+This package is a DNA/RNA/protein sequence toolkit. Then it could be use for teaching and learning molecular biology concepts, for a quick demostration on how the central dogma of biology works. Moreover, it is useful for bioinformatics pipelines, for example, for generating synthetic DNA sequences for testing sequence-processing algorithms or simulating codon usage in silico.
 
-This package provides a small collection of functions for generating, manipulating, and analyzing nucleotide and amino acid sequences. It allows users to create random DNA sequences, transcribe DNA to RNA, split sequences into codons, translate codons into amino acid sequences, and visualize amino acid composition as bar plots.
+Besides the five functions included in this package, we could provide more functions to make it more versatile. For example: 
 
+- Reverse complement
+- Calculation of the GC content
+- Translate RNA/DNA with Codon Table for specific microorganisms
+- Sequence Validation in case there is an invalid character
 
 Everyone writes about their function and some code for explanation 
 
 
 about and demonstrate how each function in the package is used (individually and in conjunction with each other). 
  
-As a final section, discuss use cases for the package and what other functions could be included. Also include the main points from your discussion in Task 3.
-
-
 
 Function 2:
 
@@ -64,3 +65,63 @@ codons <- c("UUU", "GAC", "AAG")
 codons_into_aa(codons)
 ```
 In our process, we use the sequence randomly generated that previously had been groupped in trios with function 3 and we translate it into amino-acids.
+
+
+### AminoAcidsHistogram
+
+This function creates a histogram based on the amino acid string.
+
+Here is an example with 30 amino acids, 13 different ones:
+
+```{r}
+Lab8Package::AminoAcidsHistogram('QHHPKHVAFKLGFAVGSTKSYHKFLSGHNV')
+```
+
+Here is an example with 3 amino acids, 2 different ones:
+
+```{r}
+Lab8Package::AminoAcidsHistogram('QHH')
+```
+
+### Importing Packages
+
+There are two general ways to use a function in a package
+
+```{r}
+#' @importFrom package function
+```
+
+This you put in the package, before the function, in the function description. This way you can use the function, without the package name. This can simplify your code to make it to both code and read.
+
+or
+
+```{r}
+#package::function()
+```
+
+This is in the code, where you need to use the function. This way prevents problems from two different packages having the same name for a function. It also makes it obvious what package is being used for both the coder and the reader.
+
+### General Discussion
+
+It is bad to have too many different dependencies, because it makes your code more dependent on other code working as expected. If there is a error in one dependency, then your code likely not work. The more dependencies you have, the more likelihood there is of this happening. Therefore it is important to only pick the vital dependencies, for your code.
+
+Of course dependencies are quite often vital. It can drastically decrease the amount of time it takes to program your code. It can also make the code shorter and easier to read.
+The package "group 3" is a simple DNA/RNA sequence tool. 
+Link to our GitHub repository: https://github.com/rforbiodatascience25/group_03_package
+
+This package provides a small collection of functions for generating, manipulating, and analyzing nucleotide and amino acid sequences. It allows users to create random DNA sequences, transcribe DNA to RNA, split sequences into codons, translate codons into amino acid sequences, and visualize amino acid composition as bar plots.
+
+Function 1 : random_dna1
+
+This function creates a synthetic DNA sequence of a specified length, given as an input. It randomly samples nucleotides from the standard DNA bases (adenine, thymine, guanine, and cytosine) with replacement, then concatenates them into a single continuous string.
+
+```{r}
+#variable inside function, called random_dna2, is the input by the user. This should be the desired lenght of DNA
+random_dna1 <- function(random_dna2){
+  random_dna3 <- sample(c("A", "T", "G", "C"), size = random_dna2, replace = TRUE)
+  #random_dna3 generates the random dna-like sequence with the size given in random_dna2
+  random_dna4 <- paste0(random_dna3, collapse = "")
+  #in random_dna4 is the random sequence generated but converting it into a string, without any spaces in between.
+  return(random_dna4)
+  }
+```
