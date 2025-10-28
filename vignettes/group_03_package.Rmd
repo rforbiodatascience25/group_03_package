@@ -6,7 +6,19 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Lab8Package)
+```
+
 The package "group 3" is a simple DNA/RNA sequence tool. 
+Link to our GitHub repository: https://github.com/rforbiodatascience25/group_03_package
 
 This package provides a small collection of functions for generating, manipulating, and analyzing nucleotide and amino acid sequences. It allows users to create random DNA sequences, transcribe DNA to RNA, split sequences into codons, translate codons into amino acid sequences, and visualize amino acid composition as bar plots.
 
@@ -36,19 +48,36 @@ Besides the five functions included in this package, we could provide more funct
 - Calculation of the GC content
 - Translate RNA/DNA with Codon Table for specific microorganisms
 - Sequence Validation in case there is an invalid character
+
+Everyone writes about their function and some code for explanation 
+
+
+about and demonstrate how each function in the package is used (individually and in conjunction with each other). 
  
 
 
 
 
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+Function 2:
+
+This function takes a DNA sequence in argument and returns the corresponding RNA sequence. The process that is realized is changing the "T" into "U".
+For instance, the "ATTGCT" DNA sequence will be converted into "AUUGCU".
+
+```{r}
+convert_T_U("ATTGCT")
 ```
 
-```{r setup}
-library(Lab8Package)
+In our process, we will use the random DNA sequence created with function 1 and make it an RNA one.
+
+
+Function 4:
+
+This function "codons_into_aa" uses the data table we integrated. The "data_codon.rda" table links the trios of codons to the corresponding amino-acid.
+For instance, the codon ("UUU", "GAC", "AAG") will become "FDK" after going through the function.
+
+```{r}
+codons <- c("UUU", "GAC", "AAG")
+codons_into_aa(codons)
 ```
+In our process, we use the sequence randomly generated that previously had been groupped in trios with function 3 and we translate it into amino-acids.
