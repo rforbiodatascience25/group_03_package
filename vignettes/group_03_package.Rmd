@@ -10,7 +10,7 @@ The package "group 3" is a simple DNA/RNA sequence tool.
 
 This package provides a small collection of functions for generating, manipulating, and analyzing nucleotide and amino acid sequences. It allows users to create random DNA sequences, transcribe DNA to RNA, split sequences into codons, translate codons into amino acid sequences, and visualize amino acid composition as bar plots.
 
-
+Everyone writes about their function and some code for explanation 
 
 about and demonstrate how each function in the package is used (individually and in conjunction with each other). 
  
