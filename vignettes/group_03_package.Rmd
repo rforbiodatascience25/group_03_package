@@ -17,3 +17,43 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Lab8Package)
 ```
+
+### AminoAcidsHistogram
+
+This function creates a histogram based on the amino acid string.
+
+Here is an example with 30 amino acids, 13 different ones:
+
+```{r}
+Lab8Package::AminoAcidsHistogram('QHHPKHVAFKLGFAVGSTKSYHKFLSGHNV')
+```
+
+Here is an example with 3 amino acids, 2 different ones:
+
+```{r}
+Lab8Package::AminoAcidsHistogram('QHH')
+```
+
+### Importing Packages
+
+There are two general ways to use a function in a package
+
+```{r}
+#' @importFrom package function
+```
+
+This you put in the package, before the function, in the function description. This way you can use the function, without the package name. This can simplify your code to make it to both code and read.
+
+or
+
+```{r}
+#package::function()
+```
+
+This is in the code, where you need to use the function. This way prevents problems from two different packages having the same name for a function. It also makes it obvious what package is being used for both the coder and the reader.
+
+### General Discussion
+
+It is bad to have too many different dependencies, because it makes your code more dependent on other code working as expected. If there is a error in one dependency, then your code likely not work. The more dependencies you have, the more likelihood there is of this happening. Therefore it is important to only pick the vital dependencies, for your code.
+
+Of course dependencies are quite often vital. It can drastically decrease the amount of time it takes to program your code. It can also make the code shorter and easier to read.
